@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodBeats | Sonic Mood Matching Engine</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bg-audio" loop>
+        <source src="assets/audio/background-loop.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="top-nav">
+        <div class="logo">Mood<span>Beats</span></div>
+        <nav class="nav-links">
+            <a href="info.html" class="nav-item">Müziğin Bilimi</a>
+            <a href="profile.html" class="nav-item">Kaydedilenler (<span id="saved-count">0</span>)</a>
+            <button id="mute-btn" class="icon-btn" aria-label="Mute/Unmute Audio">🔇</button>
+        </nav>
+    </header>
+
+    <main class="app-container">
+
+        <section id="welcome-screen" class="glass-card active">
+            <h1>İçindeki Sesin<br>Frekansını Bul.</h1>
+            <p>Sadece 4 sezgisel soruya cevap ver; algoritmamız şu anki zihinsel ve bedensel moduna en uygun parça ile seni eşleştirsin.</p>
+            <button id="start-btn" class="btn-primary">Testi Başlat</button>
+        </section>
+
+        <section id="quiz-screen" class="glass-card hidden">
+            <div class="progress-bar-container">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="question-header">
+                <span id="question-number">Soru 1 / 4</span>
+            </div>
+            <h2 id="question-text">Soru metni buraya gelecek...</h2>
+            <div id="options-container" class="options-grid"></div>
+        </section>
+
+        <section id="result-screen" class="glass-card hidden">
+            <span class="badge">Eşleşme Bulundu</span>
+            <h2 class="result-title">Bugünkü Frekansın:</h2>
+
+            <div class="song-showcase">
+                <h1 id="song-title">Şarkı Adı</h1>
+                <p id="song-artist">Sanatçı</p>
+            </div>
+
+            <div class="action-buttons">
+                <a id="youtube-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+                    <span>YouTube'da Dinle</span> 🎵
+                </a>
+                <button id="save-song-btn" class="btn-secondary">
+                    <span>Profili Kaydet</span> 📌
+                </button>
+            </div>
+
+            <button id="restart-btn" class="btn-text">Yeniden Başla ↻</button>
+        </section>
+
+    </main>
+
+    <!-- İşte soruları getiren asıl satırlar burası! -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
